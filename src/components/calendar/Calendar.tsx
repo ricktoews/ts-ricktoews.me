@@ -52,13 +52,14 @@ function Calendar() {
 
   useEffect(() => {
       const els: any = Array.from(document.querySelectorAll('.year-block'));
+
       setYearBlocks(els);
 
       const today = new Date();
       const currentYear = ''+today.getFullYear();
       let currentYearEl: any;
       els.forEach((el: any) => {
-          if (el.dataset.year === currentYear) {
+        if (el.dataset.year === currentYear) {
           currentYearEl = el;
           el.classList.add('current-year');
           }
@@ -136,6 +137,7 @@ console.log(el.dataset);
         var year = el.dataset.year ? parseInt(el.dataset.year, 10) : 0;
         var matchJan = el.dataset.jan ? parseInt(el.dataset.jan, 10) : 0;
         var matchIsLeap = !!el.dataset.leap;
+        console.log('handleYearClick', year, typeof year, matchJan, typeof matchJan, matchIsLeap, typeof matchIsLeap);
         /*
         setYearObj({ year, matchJan, matchIsLeap });
         var data = generateMonthData({ year, janDigit: matchJan, isLeap: matchIsLeap });
